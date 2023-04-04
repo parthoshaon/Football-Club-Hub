@@ -1,85 +1,65 @@
-<!-- <%- include ("partials/header.ejs") %>
-
-<h1>INDEX PAGE</h1>
-
-<div class = "ui main  container segment">
-<% blogs.forEach(function(blog){ %>
-	 <div class = "ui segment"> 
-		 <a class"nostyle" href="/blogs/<%=blog._id%>">
-		 	<h2 class = "ui huge header"> <%= blog.title %> </h2>
-		 	<img class = "ui centered medium image" src= "<%= blog.image %>">
-		 </a>
-	 	<span> <%= blog.created.toDateString() %> </span>
-	 	<p> <%- blog.body.substring(0, 200) %>...</p>
-	 	<a href="/blogs/<%=blog._id%>" class="mini ui grey right labeled icon button">
-		  <i class="right arrow icon"></i>
-		  More
-		</a>
-	 </div>
-<% }) %>
-
-<%- include ("partials/footer.ejs") %>
-
-
-
-
-
-</div> -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <%- include("partials/header.ejs") %>
 
 <div class="ui main container segment">
-  <!-- <h1>INDEX PAGE</h1> -->
+	<!-- Barcelona next La liga game fixture -->
+	<div class="ui segment">
+		<h2 class="ui header" style="text-align: center;">Barcelona Next Fixture</h2>
+		<br>
+		<br>
+		<% if (nextFixture) { %>
+			<div class="ui stackable grid">
+				<div class="five wide column">
+					<div class="ui raised card">
+						<div class="content">
+							<div class="header"><%= nextFixture.homeTeam %></div>
+						</div>
+					</div>
+				</div>
+				<div class="six wide column">
+					<h3 class="ui header" style="text-align: center;">VS</h3>
+				</div>
+				<div class="five wide column">
+					<div class="ui raised card">
+						<div class="content">
+							<div class="header"><%= nextFixture.awayTeam %></div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="ui divider"></div>
+			<div class="ui stackable grid">
+				<div class="eight wide column">
+					<h4 class="ui header">Date</h4>
+					<p style="text-align: left;"><%= nextFixture.fixtureDate %></p>
+				</div>
+				<div class="eight wide column">
+					<h4 class="ui header" style="text-align: right;">Time</h4>
+					<p style="text-align: right;"><%= nextFixture.fixtureTime %></p>
+				</div>
+			</div>
+		<% } else { %>
+			<p>No upcoming fixtures found.</p>
+		<% } %>
+	</div>
+</div>
 
-  <% blogs.forEach(function(blog) { %>
-  <div class="ui segment">
-    <a class="nostyle" href="/blogs/<%=blog._id%>">
-      <h2 class="ui huge header"><%= blog.title %></h2>
-      <img class="ui centered medium image" src="<%= blog.image %>">
-    </a>
-    <span><%= blog.created.toDateString() %></span>
-    <p><%- blog.body.substring(0, 200) %>...</p>
-    <a href="/blogs/<%=blog._id%>" class="mini ui grey right labeled icon button">
-      <i class="right arrow icon"></i>
-      More
-    </a>
-  </div>
-  <% }) %>
+<div class="ui main container segment">
+	<!-- <h1>INDEX PAGE</h1> -->
 
-  <div class="ui segment">
-	<h2 class="ui header">Next game fixture:</h2>
-	<% if (nextFixture) { %>
-	  <p><%= nextFixture.homeTeam %> vs <%= nextFixture.awayTeam %></p>
-	  <p><%= nextFixture.fixtureDate %></p>
-	  <p><%= nextFixture.fixtureTime %></p>
-	  <p><%= nextFixture.fixtureVenue %></p>
-	<% } else { %>
-	  <p>No upcoming fixtures found.</p>
-	<% } %>
-  </div>
-  
+	<% blogs.forEach(function(blog) { %>
+		<div class="ui segment">
+			<a class="nostyle" href="/blogs/<%=blog._id%>">
+				<h2 class="ui huge header"><%= blog.title %></h2>
+				<img class="ui centered medium image" src="<%= blog.image %>">
+			</a>
+			<span><%= blog.created.toDateString() %></span>
+			<p><%- blog.body.substring(0, 200) %>...</p>
+			<a href="/blogs/<%=blog._id%>" class="mini ui grey right labeled icon button">
+				<i class="right arrow icon"></i>
+				More
+			</a>
+		</div>
+	<% }) %>
 </div>
 
 <%- include("partials/footer.ejs") %>
