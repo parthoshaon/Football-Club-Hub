@@ -43,6 +43,50 @@
 	</div>
 </div>
 
+
+
+<div class="ui main container segment">
+	<!-- La Liga Table -->
+	<div class="ui segment">
+	  <h2 class="ui header" style="text-align: center;">La Liga Table</h2>
+	  <br>
+	  <table class="ui celled table">
+		<thead>
+		  <tr>
+			<th>Position</th>
+			<th>Team</th>
+			<th>Played</th>
+			<th>Won</th>
+			<th>Drawn</th>
+			<th>Lost</th>
+			<th>Goals For</th>
+			<th>Goals Against</th>
+			<th>Goal Difference</th>
+			<th>Points</th>
+		  </tr>
+		</thead>
+		<tbody>
+		  <% for (var i = 0; i < tableData.length; i++) { %>
+			<tr>
+			  <td><%= tableData[i].position %></td>
+			  <td><%= tableData[i].team.name %></td>
+			  <td><%= tableData[i].playedGames %></td>
+			  <td><%= tableData[i].won %></td>
+			  <td><%= tableData[i].draw %></td>
+			  <td><%= tableData[i].lost %></td>
+			  <td><%= tableData[i].goalsFor %></td>
+			  <td><%= tableData[i].goalsAgainst %></td>
+			  <td><%= tableData[i].goalDifference %></td>
+			  <td><%= tableData[i].points %></td>
+			</tr>
+		  <% } %>
+		</tbody>
+	  </table>
+	</div>
+  </div>
+  
+
+
 <div class="ui main container segment">
 	<!-- <h1>INDEX PAGE</h1> -->
 
